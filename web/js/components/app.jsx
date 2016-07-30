@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
-class App extends Component {
+export default class App extends Component {
 	render() {
-		return 'hello world'
+		return <div>'hello world'</div>
 	}
 }
