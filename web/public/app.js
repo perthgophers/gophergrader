@@ -66,7 +66,7 @@
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 	
-	__webpack_require__(182);
+	__webpack_require__(183);
 	
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
 
@@ -74,10 +74,10 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	exports.default = undefined;
 	
@@ -96,26 +96,31 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var App = function (_Component) {
-		_inherits(App, _Component);
+	  _inherits(App, _Component);
 	
-		function App() {
-			_classCallCheck(this, App);
+	  function App() {
+	    _classCallCheck(this, App);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
-		}
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	  }
 	
-		_createClass(App, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					'\'hello world\''
-				);
-			}
-		}]);
+	  _createClass(App, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        { className: "search-box" },
+	        _react2.default.createElement("input", { className: "search-input" }),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "search-button" },
+	          "Search"
+	        )
+	      );
+	    }
+	  }]);
 	
-		return App;
+	  return App;
 	}(_react.Component);
 	
 	exports.default = App;
@@ -21868,13 +21873,19 @@
 	
 	
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, "body{\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  background: url(" + __webpack_require__(182) + ") no-repeat;\n  background-size: contains;\n}\n#search-box-container{\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-top: -15px;\n  margin-left: -250px;\n}\n.search-box {\n  width: 500px;\n  /*\n  margin: auto;\n  */\n  border: 1px solid grey;\n  -webkit-border-radius: 3px;\n  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.50);\n  color: white;\n  overflow: hidden;\n}\n.search-input {\n  width: 410px;\n  border:0px;\n  height: 30px;\n  padding: 0;\n  padding-left:10px;\n}\n.search-button {\n  width: 80px;\n  height: 30px;\n  border: 0;\n  border-left: 1px solid grey;\n  background: #5680b5;\n  color: #eee;\n}", ""]);
 	
 	// exports
 
 
 /***/ },
 /* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/skyline.jpg";
+
+/***/ },
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "index.html";
