@@ -4,6 +4,14 @@ The Gopher Grade provides users with an address based grade using a spider graph
 
 ![](http://www.economicmodeling.com/wp-content/uploads/radar-graph-3.JPG)
 
+## Project Spinup
+
+```
+$ go get github.com/perthgophers/govhack
+$ glide install
+$ docker run --name perthgophers-postgis -p 5432:5432 -e POSTGRES_PASSWORD=iamagopher -d mdillon/postgis
+```
+
 ## Metrics
 
 -  Culture
