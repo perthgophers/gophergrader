@@ -5,6 +5,6 @@ import (
 )
 
 //Cafe 1km
-func Grade(addr []maps.GeocodingRequest) int {
+func Grade(addr []maps.GeocodingResult) int {
 	return 0
 }
