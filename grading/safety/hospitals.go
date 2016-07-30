@@ -9,7 +9,6 @@ import (
 type HospitalResult struct {
 	Descriptino string `db:"geographic"`
 	Category    string `db:"feature_cl"`
-	Geometry    string `db:"geometry"`
 }
 
 func Hospitals(longitude, latitude float64) (int, error) {
@@ -23,18 +22,18 @@ func Hospitals(longitude, latitude float64) (int, error) {
 	hospitals := []HospitalResult{}
 
 	queryStr := `
-		SELECT *
+		SELECT geographic, feature_cl
 		FROM geonoma
 		WHERE feature_cl = 'Health' AND
-		ST_DWithin(
-	    Geography(ST_MakePoint(?, ?)),
-	    ?
-	  );
+		geographic ILIKE '%hospital%' AND
+		ST_DWithin(geometry, ST_GeomFromText($1,4326), 0.1)
 	`
 
 	fmt.Println(queryStr)
 
-	err := dbclient.Select(&hospitals, queryStr, longStr, latStr, 2)
+	longlatstr := fmt.Sprintf("POINT(%s %s)", longStr, latStr)
+
+	err := dbclient.Select(&hospitals, queryStr, longlatstr)
 
 	if err != nil {
 		fmt.Println(err)
