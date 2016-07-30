@@ -15,7 +15,7 @@ export default class App extends Component {
                 <button className="search-button">Search</button>
             </div>
             <div className="search-result">
-                <div className="loader">
+                <div className="loader blink">
                     {this.state.loaderMessage}
                 </div>
             </div>

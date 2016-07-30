@@ -48,3 +48,20 @@ body{
     width:100px;
     border-bottom: 1px solid black;
 }
+
+@keyframes blink-animation {
+  from {
+    opacity:1;
+  }
+  
+  to {
+    opacity:0.2;
+  }
+}
+
+.blink {
+    animation-duration: 0.8s;
+    animation-name: blink-animation;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
