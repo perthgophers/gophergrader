@@ -133,6 +133,6 @@ function load() {
 
     var timer = setTimeout(function(){
         load();
-    }, 4000);
+    }, 200);
 }
 load();

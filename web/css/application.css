@@ -34,6 +34,11 @@ body{
   background: #5680b5;
   color: #eee;
 }
+
+.chart {
+  text-align: center;
+}
+
 .loader{
     /*width: 100px;*/
     height: 100px;
@@ -60,7 +65,7 @@ body{
 }
 
 .blink {
-    animation-duration: 0.8s;
+    animation-duration: 0.1s;
     animation-name: blink-animation;
     animation-iteration-count: infinite;
     animation-direction: alternate;
