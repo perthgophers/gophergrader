@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/blockninja/ninjarouter"
-	"github.com/kr/pretty"
 	"golang.org/x/net/context"
 	"googlemaps.github.io/maps"
+	"govhack/grading"
 	"net/http"
 )
 
@@ -19,11 +19,14 @@ func Serve(h http.Handler) http.HandlerFunc {
 
 func grade(w http.ResponseWriter, r *http.Request) {
 	addr := r.FormValue("address")
-	r := &maps.GeocodingRequest{
+	georeq := &maps.GeocodingRequest{
 		Address: addr,
 	}
-	resp, err := gmaps.Geocode(context.Background(), r)
-	checkErr(err)
+	resp, err := gmaps.Geocode(context.Background(), georeq)
+
+	_ = grading.Grade(resp)
+
+	checkErr(w, err)
 }
 
 func main() {
