@@ -1,6 +1,19 @@
-hash: 758afb1467eafc8d583f5c4aceef1a57214754c520865e7fc6dd3dad5d3f3760
-updated: 2016-07-30T11:24:23.713961712+08:00
+hash: 4bf5c42d80358acc36ae075d47d5aeedb6b972df3e9bab8fe4f1b4b55965cfa6
+updated: 2016-07-30T16:07:53.509294791+08:00
 imports:
 - name: github.com/blockninja/ninjarouter
   version: 7e7f6a85384159992c17e67ff8662fb4ff260efd
+- name: github.com/kr/pretty
+  version: 737b74a46c4bf788349f72cb256fed10aea4d0ac
+- name: github.com/kr/text
+  version: 7cafcd837844e784b526369c9bce262804aebc60
+- name: golang.org/x/net
+  version: 6a513affb38dc9788b449d59ffed099b8de18fa0
+  subpackages:
+  - context
+  - context/ctxhttp
+- name: googlemaps.github.io/maps
+  version: 481c6529207721c062e9a94ac4eb14f2d11f34b7
+- name: googlemaps.github.io/maps/internal
+  version: 481c6529207721c062e9a94ac4eb14f2d11f34b7
 testImports: []

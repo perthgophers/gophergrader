@@ -1,3 +1,8 @@
 package: github.com/perthgophers/govhack
 import:
 - package: github.com/blockninja/ninjarouter
+- package: googlemaps.github.io/maps
+- package: github.com/kr/pretty
+- package: golang.org/x/net
+  subpackages:
+  - context
