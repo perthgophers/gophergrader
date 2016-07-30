@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/blockninja/ninjarouter"
-	"github.com/govhack/grading"
+	"github.com/perthgophers/govhack/grading"
 	"golang.org/x/net/context"
 	"googlemaps.github.io/maps"
 	"net/http"
