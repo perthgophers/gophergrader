@@ -3,8 +3,8 @@
 import ogr,csv,sys,os
 ogr.UseExceptions()
 
-csvfile=r'C:\temp\test.csv' #sys.argv[1]
-kmlfile=r'C:\temp\test.kml' #sys.argv[2]
+csvfile=sys.argv[1]
+kmlfile=sys.argv[2]
 
 csvreader=csv.reader(open(csvfile,'rb'))
 headers=csvreader.next()

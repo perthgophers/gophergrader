@@ -1,9 +1,8 @@
 # From http://gis.stackexchange.com/questions/19163/how-to-convert-shp-to-csv-including-attributes-and-geometry
-
 import ogr,csv,sys
 
-shpfile=r'C:\Temp\test.shp' #sys.argv[1]
-csvfile=r'C:\Temp\test.csv' #sys.argv[2]
+shpfile=sys.argv[1]
+csvfile=sys.argv[2]
 
 #Open files
 csvfile=open(csvfile,'wb')
