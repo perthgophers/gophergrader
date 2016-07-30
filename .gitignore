@@ -40,4 +40,5 @@ vendor
 
 web/public
 *.swp
-*.swo
+*.swogovhack
+govhack
