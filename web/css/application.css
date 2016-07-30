@@ -6,15 +6,13 @@ body{
 #search-box-container{
   position: absolute;
   top: 50%;
-  left: 50%;
-  margin-top: -15px;
-  margin-left: -250px;
+  left: 0%;
+  /*transform: translate(50%, -50%);*/
+  width: 100%;
 }
 .search-box {
   width: 500px;
-  /*
   margin: auto;
-  */
   border: 1px solid grey;
   -webkit-border-radius: 3px;
   -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.50);
@@ -35,4 +33,18 @@ body{
   border-left: 1px solid grey;
   background: #5680b5;
   color: #eee;
+}
+.loader{
+    /*width: 100px;*/
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: auto;
+    z-index: 10;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+.line-beat{
+    width:100px;
+    border-bottom: 1px solid black;
 }
