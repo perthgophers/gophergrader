@@ -1,0 +1,6 @@
+hash: 758afb1467eafc8d583f5c4aceef1a57214754c520865e7fc6dd3dad5d3f3760
+updated: 2016-07-30T11:24:23.713961712+08:00
+imports:
+- name: github.com/blockninja/ninjarouter
+  version: 7e7f6a85384159992c17e67ff8662fb4ff260efd
+testImports: []

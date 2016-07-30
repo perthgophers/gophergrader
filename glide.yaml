@@ -1,0 +1,3 @@
+package: github.com/perthgophers/govhack
+import:
+- package: github.com/blockninja/ninjarouter
