@@ -18,11 +18,18 @@ body{
   height: 100%;
   width: 100%;
 }
+.logo {
+  background: url(../assets/logo.png) no-repeat center center;
+  height: 250px;
+  width: 250px;
+  margin: 0 auto 20px auto;
+}
 .search-container {
   position: fixed;
   width: 500px;
   top: 50%;
   left: 50%;
+  margin-top: -50px;
   transform: translate(-50%, -50%);
   transition: all 2s ease 0s;
 }
