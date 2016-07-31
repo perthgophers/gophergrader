@@ -44,6 +44,9 @@ func Bus(longitude, latitude float64) (int, error) {
 		fmt.Println(err)
 		return 0, err
 	}
+	if len(buses) == 0 {
+		return 0, err
+	}
 	result, err := strconv.Atoi(buses[0].Rank)
 	if err != nil {
 		fmt.Println(err)

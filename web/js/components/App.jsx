@@ -215,7 +215,7 @@ export default class App extends Component {
     }
 
     renderChart() {
-        if (this.state.searchComplete) {
+        if (this.state.searchComplete && !this.state.searching) {
             return <Chart points={this.state.points} labels={this.state.labels}/> 
         }
     }

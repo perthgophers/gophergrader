@@ -45,6 +45,9 @@ func Location(longitude, latitude float64) (int, error) {
 		fmt.Println(err)
 		return 0, err
 	}
+	if len(communityLocations) == 0 {
+		return 0, nil
+	}
 	fmt.Println("Community Location Score:", result)
 	return result, nil
 }

@@ -62,10 +62,14 @@ func Service(longitude, latitude float64) (int, error) {
 		fmt.Println(err)
 		return 0, err
 	}
+	if len(serviceLocations) == 0 {
+		return 0, nil
+	}
 	result, err := strconv.Atoi(serviceLocations[0].Rank)
 	if err != nil {
 		fmt.Println(err)
 		return 0, err
 	}
+
 	return result, nil
 }
