@@ -26,7 +26,6 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	safety.Hospitals(longitude, latitude)
 	accessibiltyBusScore, _ := accessibility.Bus(longitude, latitude)
 	communityLocationScore, _ := community.Location(longitude, latitude)
-	communityServiceScore, _ := community.Service(longitude, latitude)
 	accessibilityCongestionScore, _ := accessibility.Congestion(longitude, latitude)
 	safetyFinalScore, _ := safety.Crime(longitude, latitude)
 
@@ -36,11 +35,12 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	fmt.Println("congi", congestionScore)
 	fmt.Println("raifc", rainFallScore)
 	accessibiltyFinalScore := int((float64(accessibiltyBusScore) + float64(accessibilityCongestionScore)) / 2.0)
-	communityFinalScore := int((float64(communityLocationScore) + float64(communityServiceScore)) / 2.0)
-
+	communityFinalScore := communityLocationScore
+	servicesFinalScore, _ := community.Service(longitude, latitude)
 	fmt.Println("Accessibility Final Score:", accessibiltyFinalScore)
 	fmt.Println("Community Final Score:", communityFinalScore)
 	fmt.Println("Safety Final Score:", safetyFinalScore)
+	fmt.Println("Services Final Score:", servicesFinalScore)
 
 	results := GradingResult{
 		Accessibility: accessibiltyFinalScore,
@@ -48,7 +48,7 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 		Community:     communityFinalScore,
 		Culture:       5,
 		Safety:        safetyFinalScore,
-		Services:      5,
+		Services:      servicesFinalScore,
 	}
 	return results
 }
