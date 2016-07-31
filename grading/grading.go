@@ -5,6 +5,7 @@ import (
 	"math/rand"
 
 	"github.com/perthgophers/govhack/grading/accessibility"
+	"github.com/perthgophers/govhack/grading/apocalypse"
 	"github.com/perthgophers/govhack/grading/community"
 	"github.com/perthgophers/govhack/grading/safety"
 	"googlemaps.github.io/maps"
@@ -30,18 +31,24 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	accessibilityCongestionScore, _ := accessibility.Congestion(longitude, latitude)
 	safetyFinalScore, _ := safety.Crime(longitude, latitude)
 
+	congestionScore, _ := accessibility.Congestion(longitude, latitude)
+	rainFallScore, _ := apocalypse.RainFall(longitude, latitude)
+
+	fmt.Println("congi", congestionScore)
+	fmt.Println("raifc", rainFallScore)
 	accessibiltyFinalScore := int((float64(accessibiltyBusScore) + float64(accessibilityCongestionScore)) / 2.0)
 	communityFinalScore := int((float64(communityLocationScore) + float64(communityServiceScore)) / 2.0)
+
 	fmt.Println("Accessibility Final Score:", accessibiltyFinalScore)
 	fmt.Println("Community Final Score:", communityFinalScore)
 	fmt.Println("Safety Final Score:", safetyFinalScore)
 
 	results := GradingResult{
 		Accessibility: accessibiltyFinalScore,
-		Apocalypse:    rand.Intn(7) + 3,
+		Apocalypse:    rainFallScore,
 		Community:     communityFinalScore,
 		Culture:       rand.Intn(7) + 3,
-		Safety:        rand.Intn(7) + 3,
+		Safety:        safetyFinalScore,
 		Services:      rand.Intn(7) + 3,
 	}
 	return results
