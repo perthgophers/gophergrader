@@ -7,12 +7,12 @@ import (
 )
 
 type GradingResult struct {
-	Accessibility int `json: "accessibility"`
-	Apocalypse    int `json: "apocalypse"`
-	Community     int `json: "community"`
-	Culture       int `json: "culture"`
-	Safety        int `json: "safety"`
-	Services      int `json: "services"`
+	Accessibility int `json:"accessibility"`
+	Apocalypse    int `json:"apocalypse"`
+	Community     int `json:"community"`
+	Culture       int `json:"culture"`
+	Safety        int `json:"safety"`
+	Services      int `json:"services"`
 }
 
 //Cafe 1km
