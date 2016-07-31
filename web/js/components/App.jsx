@@ -182,14 +182,17 @@ export default class App extends Component {
         const chart = this.renderChart();
         const searching = this.state.searching;
         const searchComplete = this.state.searchComplete;
-        let style = '';
+        let style = {};
         if (searching || searchComplete) {
-            const style = 'top: 50 duration:300, easing: ease-out';
+            style = {
+                top: 30,
+                transform: 'translate(-50%)'
+            }
         }
 
             // <LoadingText searching={this.state.searching} loaderMessages={this.state.loaderMessages}/>
-		return <div>
-            <div className='search-box' style={{style}}>
+		return <div className="search-container" style={style}>
+            <div className='search-box'>
                 <input className='search-input' onChange={this.handleChange} onKeyDown={this.handleEnter}/>
                 <button className='search-button' onClick={this.search}>Search</button>
             </div>
