@@ -28,11 +28,13 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	communityLocationScore, _ := community.Location(longitude, latitude)
 	communityServiceScore, _ := community.Service(longitude, latitude)
 	accessibilityCongestionScore, _ := accessibility.Congestion(longitude, latitude)
+	safetyFinalScore, _ := safety.Crime(longitude, latitude)
 
 	accessibiltyFinalScore := int((float64(accessibiltyBusScore) + float64(accessibilityCongestionScore)) / 2.0)
 	communityFinalScore := int((float64(communityLocationScore) + float64(communityServiceScore)) / 2.0)
 	fmt.Println("Accessibility Final Score:", accessibiltyFinalScore)
 	fmt.Println("Community Final Score:", communityFinalScore)
+	fmt.Println("Safety Final Score:", safetyFinalScore)
 
 	results := GradingResult{
 		Accessibility: accessibiltyFinalScore,
