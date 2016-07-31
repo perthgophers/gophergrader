@@ -1,7 +1,9 @@
 package grading
 
 import (
+	"fmt"
 	"github.com/perthgophers/govhack/grading/safety"
+	"github.com/perthgophers/govhack/grading/accessibility"
 	"googlemaps.github.io/maps"
 	"math/rand"
 )
@@ -21,6 +23,8 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	latitude := addr[0].Geometry.Location.Lat
 
 	safety.Hospitals(longitude, latitude)
+
+	congestionScore, _ := accessibility.Congestion(longitude, latitude)
 
 	results := GradingResult{
 		Accessibility: rand.Intn(10),
