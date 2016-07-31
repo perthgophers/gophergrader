@@ -2,7 +2,6 @@ package grading
 
 import (
 	"fmt"
-	"math/rand"
 
 	"github.com/perthgophers/govhack/grading/accessibility"
 	"github.com/perthgophers/govhack/grading/apocalypse"
@@ -45,11 +44,11 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 
 	results := GradingResult{
 		Accessibility: accessibiltyFinalScore,
-		Apocalypse:    rainFallScore,
+		Apocalypse:    5,
 		Community:     communityFinalScore,
-		Culture:       rand.Intn(7) + 3,
+		Culture:       5,
 		Safety:        safetyFinalScore,
-		Services:      rand.Intn(7) + 3,
+		Services:      5,
 	}
 	return results
 }
