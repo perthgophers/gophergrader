@@ -28,6 +28,9 @@ export default class Chart extends Component {
             // defaultFontColor: '#666'
         const secondaryColor = "rgba(179,181,198,1)"
         const chartOptions = {
+            legend: {
+                display: false
+            },
             scale: {
                 angleLines: {
                     color: secondaryColor,
@@ -40,8 +43,12 @@ export default class Chart extends Component {
                 ticks: {
                     color: secondaryColor,
                     fixedStepSize: 2,
+                    max: 10,
                     suggestedMax: 10,
-                    backdropColor: 'rgba(0,0,0,0)'
+                    beginAtZero: true,
+                    // backdropColor: 'rgba(0,0,0,0)',
+                    showLabelBackdrop: false,
+                    fontStyle: 'bold'
                 },
                 elements: {
                     line: {

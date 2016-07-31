@@ -143,8 +143,9 @@ export default class App extends Component {
     search(event) {
         this.setState({searching: true});
         const query = this.state.searchText;
+        const partialQuery = `/grade?address=${query}`;
         const fullQuery = `http://localhost:9000/grade?address=${query}`
-        axios.get(fullQuery)
+        axios.get(partialQuery)
             .then((response) => {
                 console.log('load complete');
                 console.log(response);
@@ -180,6 +181,7 @@ export default class App extends Component {
 
 	render() {
         const chart = this.renderChart();
+        const loader = this.renderLoader();
         const searching = this.state.searching;
         const searchComplete = this.state.searchComplete;
         let style = {};
@@ -190,21 +192,27 @@ export default class App extends Component {
             }
         }
 
-            // <LoadingText searching={this.state.searching} loaderMessages={this.state.loaderMessages}/>
+            
 		return <div className="search-container" style={style}>
             <div className="logo" />
             <div className='search-box'>
                 <input className='search-input' onChange={this.handleChange} onKeyDown={this.handleEnter}/>
                 <button className='search-button' onClick={this.search}>Search</button>
             </div>
-            <div className='search-result'>
-                <div className='loader blink'>
-                    {this.state.loaderMessage}
-                </div>
-            </div>
+            {loader}
             {chart}
         </div>
 	}
+
+    renderLoader() {
+        if (this.state.searching) {
+            return <div className='search-result'>
+                <div className='loader blink'>
+                    <LoadingText searching={this.state.searching} loaderMessages={this.state.loaderMessages}/>
+                </div>
+            </div>
+        }
+    }
 
     renderChart() {
         if (this.state.searchComplete) {
