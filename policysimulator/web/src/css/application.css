@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.suburbs {
+	height: 100%;
+	color: black
+}
+
+body > h1 {
+	background: black;
+	color: white;
+	font-size: 22px;
+	padding: 8px;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.form {
+	padding: 20px
+}
+
+.example {
+  margin: 0 0 20px 0;
+}
+
+.example-xy .slider {
+  width: 230px;
+  height: 230px;
+}
+
+.example-x .slider {
+  width: 300px;;
+}
+
+.example-y .slider {
+  height: 300px;
+}
