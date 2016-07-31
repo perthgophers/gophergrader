@@ -18,8 +18,8 @@ export default class Chart extends Component {
                     pointBackgroundColor: 'rgba(179,181,198,1)',
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(179,181,198,1)'
-
+                    pointHoverBorderColor: 'rgba(179,181,198,1)',
+                    label: 'Historical Data'
                 }
             ],
             labels: labels

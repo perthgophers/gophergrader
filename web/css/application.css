@@ -1,12 +1,17 @@
 body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  background: url(../assets/skyline.jpg) no-repeat;
-  background-size: contains;
+  /*background: url(../assets/skyline.jpg) no-repeat;*/
+  /*background-size: contains;*/
+  background-color: #212121;
+  margin: 0;
+  padding: 0;
+  text-align: center
 }
 #search-box-container{
   position: absolute;
   top: 50%;
   left: 0%;
+  
   /*transform: translate(50%, -50%);*/
   width: 100%;
 }
@@ -36,7 +41,10 @@ body{
 }
 
 .chart {
-  text-align: center;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
 }
 
 .loader{
