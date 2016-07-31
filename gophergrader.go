@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/blockninja/ninjarouter"
 	"github.com/perthgophers/govhack/grading"
@@ -23,10 +24,15 @@ func grade(w http.ResponseWriter, r *http.Request) {
 		Address: addr,
 	}
 	resp, err := gmaps.Geocode(context.Background(), georeq)
+	checkErr(w, err)
 
-	_ = grading.Grade(resp)
+	grresult := grading.Grade(resp)
+
+	jsonresponse, err := json.Marshal(grresult)
 
 	checkErr(w, err)
+
+	w.Write(jsonresponse)
 }
 
 func main() {
