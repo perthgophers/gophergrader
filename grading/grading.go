@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"github.com/perthgophers/govhack/grading/safety"
 	"github.com/perthgophers/govhack/grading/accessibility"
+	"github.com/perthgophers/govhack/grading/apocalypse"
 	"googlemaps.github.io/maps"
 )
 
@@ -25,6 +26,10 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	safety.Hospitals(longitude, latitude)
 
 	congestionScore, _ := accessibility.Congestion(longitude, latitude)
+	rainFallScore, _ := apocalypse.RainFall(longitude, latitude)
+
+	fmt.Println("congi", congestionScore)
+	fmt.Println("raifc", rainFallScore)
 
 	results := GradingResult{
 		Accessibility: rand.Intn(7) + 3,
