@@ -2,10 +2,10 @@ package grading
 
 import (
 	"fmt"
+	"math/rand"
 	"github.com/perthgophers/govhack/grading/safety"
 	"github.com/perthgophers/govhack/grading/accessibility"
 	"googlemaps.github.io/maps"
-	"math/rand"
 )
 
 type GradingResult struct {
@@ -27,12 +27,12 @@ func Grade(addr []maps.GeocodingResult) GradingResult {
 	congestionScore, _ := accessibility.Congestion(longitude, latitude)
 
 	results := GradingResult{
-		Accessibility: rand.Intn(10),
-		Apocalypse:    rand.Intn(10),
-		Community:     rand.Intn(10),
-		Culture:       rand.Intn(10),
-		Safety:        rand.Intn(10),
-		Services:      rand.Intn(10),
+		Accessibility: rand.Intn(7) + 3,
+		Apocalypse:    rand.Intn(7) + 3,
+		Community:     rand.Intn(7) + 3,
+		Culture:       rand.Intn(7) + 3,
+		Safety:        rand.Intn(7) + 3,
+		Services:      rand.Intn(7) + 3,
 	}
 
 	return results
