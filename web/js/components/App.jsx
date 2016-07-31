@@ -143,8 +143,9 @@ export default class App extends Component {
     search(event) {
         this.setState({searching: true});
         const query = this.state.searchText;
+        const partialQuery = `/grade?address=${query}`;
         const fullQuery = `http://localhost:9000/grade?address=${query}`
-        axios.get(fullQuery)
+        axios.get(partialQuery)
             .then((response) => {
                 console.log('load complete');
                 console.log(response);
