@@ -1,26 +1,36 @@
 import React, {Component} from 'react'
-var RadarChart = require('react-chartjs').Radar;
+import {Radar} from 'react-chartjs-2';
 
 export default class Chart extends Component {
+    constructor(props) {
+        super(props);
+    }
 	render() {
+
+        const points = this.props.points;
+        const labels = this.props.labels;
         const chartData = {
-            datasets: {
-                0: {
-                    data: [1,2,3,4,5,6],
-                    fillColor: 'rgba(151,187,205,0.2)',
-                    label: 'Policy Simulator Data',
-                    pointColor: 'rgba(151,187,205,1)',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(220,220,220,1)',
-                    pointStrokeColor: '#fff',
-                    strokeColor: 'rgba(151,187,205,1)'
+            datasets: [
+                {
+                    data: points,
+                    backgroundColor: 'rgba(179,181,198,0.2)',
+                    borderColor: 'rgba(179,181,198,1)',
+                    pointBackgroundColor: 'rgba(179,181,198,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(179,181,198,1)'
+
                 }
-            },
-            labels: ['Culture', 'Apocalypse Readiness', 'Accessibility', 'Services', 'Safety', 'Community']
+            ],
+            labels: labels
         };
+            // defaultFontColor: '#666'
+        const chartOptions = {
+        }
+
 		return (
             <div className='chart'>
-                <RadarChart data={chartData} responsive/>
+                <Radar data={chartData}/>
             </div>
         );
 	}

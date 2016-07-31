@@ -100,7 +100,7 @@ var loaderMessages = [
     'Retracting Phong Shader ',
     'Retrieving from Back Store ',
     'Reverse Engineering Image Consultant ',
-    'Routing Neural Network Infanstructure ',
+    'Routing Neural Network Infrastructure ',
     'Scattering Rhino Food Sources ',
     'Scrubbing Terrain ',
     'Searching for Llamas ',
@@ -130,9 +130,9 @@ function load() {
     var i = parseInt(loaderMessagesIndex(), 10);
     var loaderMessage = loaderMessages[i];
     searchApp.setState({loaderMessage: loaderMessage})
-
+    console.log('load')
     var timer = setTimeout(function(){
         load();
     }, 200);
 }
-load();
+// load();
