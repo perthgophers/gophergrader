@@ -14,7 +14,6 @@ var searchApp = ReactDOM.render(
 )
 
 
-
 function loaderMessagesIndex() {
     return Math.random() * loaderMessages.length;
 }
