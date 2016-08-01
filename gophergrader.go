@@ -6,6 +6,7 @@ import (
 	"github.com/blockninja/ninjarouter"
 	"github.com/perthgophers/gophergrader/db"
 	"github.com/perthgophers/gophergrader/grading"
+	"github.com/perthgophers/gophergrader/policysimulator"
 	"golang.org/x/net/context"
 	"googlemaps.github.io/maps"
 	"net/http"
@@ -44,6 +45,7 @@ func main() {
 	}
 
 	db.Init(DBUsername, DBPassword)
+	policysimulator.Init(gmaps)
 
 	rtr := ninjarouter.New()
 	rtr.GET("/grade", grade)

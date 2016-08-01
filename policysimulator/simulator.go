@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/blockninja/ninjarouter"
 	"github.com/perthgophers/gophergrader/db"
-	"github.com/perthgophers/gophergradergrading"
+	"github.com/perthgophers/gophergrader/grading"
 	"golang.org/x/net/context"
 	"googlemaps.github.io/maps"
 	"net/http"
@@ -67,17 +67,19 @@ func suburbs(w http.ResponseWriter, r *http.Request) {
 }
 
 func Init(gmapsclient *maps.Client) {
-	gmaps = gmapsclient
-	rtr := ninjarouter.New()
+	go func() {
+		gmaps = gmapsclient
+		rtr := ninjarouter.New()
 
-	rtr.GET("/suburb", getsuburb)
-	rtr.GET("/suburbs", suburbs)
-	rtr.GET("/*", Serve(http.FileServer(http.Dir("./policysimulator/web/public/"))))
+		rtr.GET("/suburb", getsuburb)
+		rtr.GET("/suburbs", suburbs)
+		rtr.GET("/*", Serve(http.FileServer(http.Dir("./policysimulator/web/public/"))))
 
-	fmt.Println("Listening on port 9001...")
-	if err := rtr.Listen(":9001"); err != nil {
-		panic(err)
-	}
+		fmt.Println("Listening on port 9001...")
+		if err := rtr.Listen(":9001"); err != nil {
+			panic(err)
+		}
+	}()
 }
 
 func checkErr(w http.ResponseWriter, err error) {
