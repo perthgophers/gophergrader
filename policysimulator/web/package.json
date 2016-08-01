@@ -1,6 +1,6 @@
 {
   "name": "policy-simulator",
-  "version": "0.0.1",
+  "version": "0.1",
   "description": "Policy simulator",
   "main": "index.js",
   "scripts": {
