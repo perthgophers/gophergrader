@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"log"
@@ -8,9 +9,9 @@ import (
 
 var db *sqlx.DB
 
-func init() {
+func Init(dbusername, dbkey string) {
 	var err error
-	db, err = sqlx.Open("postgres", "dbname=govhack user=postgres password=iamagopher host=103.241.200.20 sslmode=disable")
+	db, err = sqlx.Open("postgres", fmt.Sprintf("dbname=govhack user=%s password=%s host=103.241.200.20 sslmode=disable", dbusername, dbkey))
 
 	if err != nil {
 		log.Fatal(err)

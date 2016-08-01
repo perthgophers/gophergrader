@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/perthgophers/govhack/db"
+	"github.com/perthgophers/gophergrader/db"
 )
 
 type CrimeRank struct {

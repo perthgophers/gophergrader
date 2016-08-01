@@ -3,10 +3,10 @@ package grading
 import (
 	"fmt"
 
-	"github.com/perthgophers/govhack/grading/accessibility"
-	"github.com/perthgophers/govhack/grading/apocalypse"
-	"github.com/perthgophers/govhack/grading/community"
-	"github.com/perthgophers/govhack/grading/safety"
+	"github.com/perthgophers/gophergrader/grading/accessibility"
+	"github.com/perthgophers/gophergrader/grading/apocalypse"
+	"github.com/perthgophers/gophergrader/grading/community"
+	"github.com/perthgophers/gophergrader/grading/safety"
 	"googlemaps.github.io/maps"
 )
 

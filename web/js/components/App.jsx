@@ -90,7 +90,7 @@ export default class App extends Component {
 		return <div className="search-container" style={style}>
             <div className="logo" />
             <div className='search-box'>
-                <input className='search-input' onChange={this.handleChange} onKeyDown={this.handleEnter}/>
+                <input placeholder="Enter an address" className='search-input' onChange={this.handleChange} onKeyDown={this.handleEnter}/>
                 <button className='search-button' onClick={this.search}>Search</button>
             </div>
             <div style={{padding:20}}>

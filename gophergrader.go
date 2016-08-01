@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/blockninja/ninjarouter"
-	"github.com/perthgophers/govhack/grading"
+	"github.com/perthgophers/gophergrader/db"
+	"github.com/perthgophers/gophergrader/grading"
 	"golang.org/x/net/context"
 	"googlemaps.github.io/maps"
 	"net/http"
@@ -41,6 +42,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	db.Init(DBUsername, DBPassword)
 
 	rtr := ninjarouter.New()
 	rtr.GET("/grade", grade)

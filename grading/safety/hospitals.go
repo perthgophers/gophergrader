@@ -2,7 +2,7 @@ package safety
 
 import (
 	"fmt"
-	"github.com/perthgophers/govhack/db"
+	"github.com/perthgophers/gophergrader/db"
 	"strconv"
 )
 

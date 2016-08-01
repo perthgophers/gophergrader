@@ -86,18 +86,18 @@ module.exports = {
       }
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin({
-    //   minimize: true,
-    //   compress: {
-    //     warnings: false
-    //   },
-    //   output: {comments: false}
-    // })
-    // new CompressionPlugin({
-    //         asset: "[path].gz[query]",
-    //         algorithm: "gzip",
-    //         threshold: 10240,
-    //         minRatio: 0.8
-    //     })
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      },
+      output: {comments: false}
+    }),
+    new CompressionPlugin({
+            asset: "[path].gz[query]",
+            algorithm: "gzip",
+            threshold: 10240,
+            minRatio: 0.8
+        })
   ]
 };
