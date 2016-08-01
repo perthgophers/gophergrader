@@ -2,12 +2,14 @@ package apocalypse
 
 import (
 	"fmt"
-	"github.com/perthgophers/govhack/db"
 	"strconv"
+
+	"github.com/perthgophers/govhack/db"
 )
 
 type RainFallResult struct {
-	MeanValue float64 `db:"rainfall_rank"`
+	Rank      float64 `db:"rainfall_rank"`
+	MeanValue float64 `db:"value_mean"`
 }
 
 func RainFall(longitude, latitude float64) (int, error) {
@@ -21,12 +23,12 @@ func RainFall(longitude, latitude float64) (int, error) {
 	rainFallResult := []RainFallResult{}
 
 	/*
-	queryStr := `
-		SELECT value_mean
-		FROM bom_avg_monthly_rainfall
-	    WHERE
-	    ST_Distance(ST_GeomFromText($1,4326), geometry) > 0
-	`
+		queryStr := `
+			SELECT value_mean
+			FROM bom_avg_monthly_rainfall
+		    WHERE
+		    ST_Distance(ST_GeomFromText($1,4326), geometry) > 0
+		`
 	*/
 	queryStr := `
 		SELECT 
@@ -52,20 +54,18 @@ func RainFall(longitude, latitude float64) (int, error) {
 	    ORDER BY distant 
 	    LIMIT 1 
 	`
-	dbclient.Select(
-	    &rainFallResult,
-	    queryStr,
+	err := dbclient.Select(
+		&rainFallResult,
+		queryStr,
 		fmt.Sprintf("POINT(%s %s)", longStr, latStr),
 	)
 
 	fmt.Println("rfrqi", len(rainFallResult))
 
-	/*
 	if err != nil {
 		fmt.Println(err)
 		return 0, err
 	}
-	*/
 
 	for k, i := range rainFallResult {
 		fmt.Println("rf", k, i)

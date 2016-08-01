@@ -41,4 +41,4 @@ vendor
 web/public
 *.swp
 *.swogovhack
-govhack
+govhackgophergrader
